@@ -1,5 +1,7 @@
 <?php
 require 'PHPMailerAutoload.php';
+require 'class.phpmailer.php';
+require 'class.smtp.php';
 
 $mail = new PHPMailer;
 
