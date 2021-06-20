@@ -1,33 +1,47 @@
- <?php
-require 'PHPMailerAutoload.php';
-
-$mail = new PHPMailer;
-
-$mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-$mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'sandeepthatikonda1655@gmail.com';                 // SMTP username
-$mail->Password = 'cntrgumltkiaodhws';                           // SMTP password
-$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 587;                                    // TCP port to connect to
-$mail->setFrom('from@example.com', 'Mailer');
-$mail->addAddress('sandeepthatikonda12@gmail.com', 'Joe User');     // Add a recipient
-$mail->addAddress('sandeepthatikonda12@gmail.com');               // Name is optional
-$mail->addReplyTo('info@example.com', 'Information');
-$mail->addCC('cc@example.com');
-$mail->addBCC('bcc@example.com');
-
-$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-$mail->isHTML(true);                                  // Set email format to HTML
-
-$mail->Subject = 'Here is the subject';
-$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-if(!$mail->send()) {
-    echo 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'Message has been sent';
-}
+                                  
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="https://codingbirdsonline.com/wp-content/uploads/2019/12/cropped-coding-birds-favicon-2-1-192x192.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <title>Send Email Example</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Send Email</h5>
+                    <form action="email-script.php" method="post" class="form-signin">
+                        <div class="form-label-group">
+                            <label for="inputEmail">From <span style="color: #FF0000">*</span></label>
+                            <input type="text" name="fromEmail" id="fromEmail" class="form-control"  value="info@codingbirdsonline.com" readonly required autofocus>
+                        </div> <br/>
+                        <div class="form-label-group">
+                            <label for="inputEmail">To <span style="color: #FF0000">*</span></label>
+                            <input type="text" name="toEmail" id="toEmail" class="form-control" placeholder="Email address" required autofocus>
+                        </div> <br/>
+                        <label for="inputPassword">Subject <span style="color: #FF0000">*</span></label>
+                        <div class="form-label-group">
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
+                        </div><br/>
+                        <label for="inputPassword">Message <span style="color: #FF0000">*</span></label>
+                        <div class="form-label-group">
+                            <textarea  id="message" name="message" class="form-control" placeholder="Message" required ></textarea>
+                        </div> <br/>
+                        <button type="submit" name="sendMailBtn" class="btn btn-lg btn-primary btn-block text-uppercase" >Send Email</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
